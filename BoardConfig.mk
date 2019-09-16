@@ -26,7 +26,7 @@ TARGET_KERNEL_CONFIG := lineage_trhpltexx_defconfig
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 # RIL
-BOARD_MODEM_TYPE := m7450
+BOARD_MODEM_TYPE := xmm7260
 BOARD_PROVIDES_LIBRIL := true
 
 # Recovery

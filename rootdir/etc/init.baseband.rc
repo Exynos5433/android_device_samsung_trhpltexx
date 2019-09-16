@@ -2,7 +2,18 @@ on init
     # RIL <-> audioserver comm
     chmod 0644 /proc/cmdline
     mkdir /efs 0771 radio system
-    symlink /dev/block/platform/15540000.dwmmc0/by-name/RADIO /dev/mbin0
+    symlink  /sys/devices/15510000.usb/ehci_power /dev/ehci_power
+    symlink  /sys/devices/10f24000.mipi-lli /dev/mipi-lli
+
+    write /sys/class/net/rmnet0/queues/rx-0/rps_cpus 1
+    write /sys/class/net/rmnet1/queues/rx-0/rps_cpus 1
+    write /sys/class/net/rmnet2/queues/rx-0/rps_cpus 1
+    write /sys/class/net/rmnet3/queues/rx-0/rps_cpus 1
+    write /sys/class/net/rmnet4/queues/rx-0/rps_cpus 1
+    write /sys/class/net/rmnet5/queues/rx-0/rps_cpus 1
+    write /sys/class/net/rmnet6/queues/rx-0/rps_cpus 1
+    write /sys/class/net/rmnet7/queues/rx-0/rps_cpus 1
+    write /proc/sys/net/core/netdev_max_backlog 8192
     restorecon /dev/mbin0
 
 on fs
@@ -55,7 +66,7 @@ on property:sys.boot_completed=1
     restart ril-daemon
 
 # CP Boot Daemon (CBD)
-service cpboot-daemon /vendor/bin/hw/cbd -d -tstem7400 -bh -mh -p 13
+service cpboot-daemon /vendor/bin/hw/cbd -d -t xmm72xx_lli -b l -m l -p 13
     class main
     user root
     group radio cache inet misc audio sdcard_rw log sdcard_r shell
