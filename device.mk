@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/treltexx
+LOCAL_PATH := device/samsung/trhpltexx
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -31,7 +31,7 @@ PRODUCT_COPY_FILES += \
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
-	device/samsung/treltexx/overlay	
+	device/samsung/trhpltexx/overlay	
 
 # Radio
 PRODUCT_PACKAGES += \

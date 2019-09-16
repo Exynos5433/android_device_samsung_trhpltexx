@@ -15,7 +15,7 @@
 #
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/treltexx/device.mk)
+$(call inherit-product, device/samsung/trhpltexx/device.mk)
 $(call inherit-product, device/samsung/trelte-common/device-common.mk)
 
 # Inherit from those products. Most specific first
@@ -25,14 +25,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, vendor/rr/config/common_full_phone.mk)
 
 # Device identifier
-PRODUCT_NAME := rr_treltexx
-PRODUCT_DEVICE := treltexx
+PRODUCT_NAME := rr_trhpltexx
+PRODUCT_DEVICE := trhpltexx
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-N910C
+PRODUCT_MODEL := SM-N910U
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
-BUILD_FINGERPRINT := samsung/treltexx/trelte:6.0.1/MMB29K/N910CXXU2DSA2:user/release-keys
+BUILD_FINGERPRINT := samsung/trhpltexx/trelte:6.0.1/MMB29K/N910CXXU2DSA2:user/release-keys
 BOARD_VENDOR := samsung
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=treltexx
+    PRODUCT_NAME=trhpltexx
