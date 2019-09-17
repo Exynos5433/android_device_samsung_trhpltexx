@@ -2,6 +2,9 @@ on init
     # RIL <-> audioserver comm
     chmod 0644 /proc/cmdline
     mkdir /efs 0771 radio system
+    symlink /dev/block/platform/15540000.dwmmc0/by-name/RADIO /dev/mbin0
+    restorecon /dev/mbin0
+
     symlink  /sys/devices/15510000.usb/ehci_power /dev/ehci_power
     symlink  /sys/devices/10f24000.mipi-lli /dev/mipi-lli
 
@@ -14,15 +17,12 @@ on init
     write /sys/class/net/rmnet6/queues/rx-0/rps_cpus 1
     write /sys/class/net/rmnet7/queues/rx-0/rps_cpus 1
     write /proc/sys/net/core/netdev_max_backlog 8192
-    restorecon /dev/mbin0
 
 on fs
 # MIF
-    chown radio radio /sys/devices/virtual/misc/multipdp/waketime
+    chown radio radio sys/devices/virtual/misc/multipdp/waketime
     chmod 0660 /sys/devices/virtual/misc/umts_dm0/dm_state
     chown radio system /sys/devices/virtual/misc/umts_dm0/dm_state
-    chown radio system /efs
-    chmod 0771 /efs
 
 on early-boot
 # Assign TCP buffer thresholds to be ceiling value of technology maximums
@@ -50,11 +50,6 @@ on post-fs-data
     rmdir /data/data/com.android.providers.telephony/shared_prefs
     rm /data/data/com.android.providers.telephony/databases
     rm /data/data/com.android.providers.telephony/shared_prefs
-	
-    # Remove dalvik files that cause modem issues
-    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.art
-    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.vdex
-    rm /data/dalvik-cache/arm/system@framework@boot-telephony-common.oat	
 	
 on property:sys.boot_completed=1
     # Symlink directories to access telephony.db and preferred-apn.xml required by cbd
