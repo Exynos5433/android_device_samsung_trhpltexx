@@ -14,4 +14,5 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_trhpltexx.mk
+    $(LOCAL_DIR)/lineage_trhpltexx.mk \
+    $(LOCAL_DIR)/rr_trhpltexx.mk
