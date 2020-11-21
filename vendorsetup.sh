@@ -1,2 +1,0 @@
-add_lunch_combo lineage_trhpltexx-userdebug
-add_lunch_combo rr_trhpltexx-userdebug

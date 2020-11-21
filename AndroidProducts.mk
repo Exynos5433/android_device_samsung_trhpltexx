@@ -16,3 +16,9 @@
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_trhpltexx.mk \
     $(LOCAL_DIR)/rr_trhpltexx.mk
+
+COMMON_LUNCH_CHOICES := \
+    lineage_trhpltexx-user \
+    lineage_trhpltexx-userdebug \
+    lineage_trhpltexx-eng \
+    rr_trhpltexx-userdebug
