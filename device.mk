@@ -16,6 +16,8 @@
 
 LOCAL_PATH := device/samsung/trhpltexx
 
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.baseband.rc \
