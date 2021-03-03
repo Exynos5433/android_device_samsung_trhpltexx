@@ -27,9 +27,6 @@ on early-boot
 
 on fs
 # MIF
-    chown radio radio sys/devices/virtual/misc/multipdp/waketime
-    chmod 0660 /sys/devices/virtual/misc/umts_dm0/dm_state
-    chown radio system /sys/devices/virtual/misc/umts_dm0/dm_state
     chown radio system /efs
     chmod 0771 /efs
     chown radio radio /sys/devices/virtual/misc/multipdp/waketime
@@ -52,21 +49,3 @@ service cpboot-daemon /vendor/bin/hw/cbd -d -t xmm72xx_lli -b l -m l -p 13
 on property:ro.modemloader.done=1
     start cpboot-daemon
     start ril-daemon
-	
-on post-fs-data
-    # Remove symlinks to avoid issues with migrate after nandroid restores
-    # Will be recreated at end of boot
-    rm -r /data/data/com.android.providers.telephony/databases
-    rm -r /data/data/com.android.providers.telephony/shared_prefs
-
-    # Symlink directories to access telephony.db and preferred-apn.xml required by cbd
-    symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
-    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs /data/data/com.android.providers.telephony/shared_prefs
-    chown radio radio /data/data/com.android.providers.telephony/databases
-    chmod 0771 /data/data/com.android.providers.telephony/databases
-    chown radio radio /data/data/com.android.providers.telephony/shared_prefs
-    chmod 0771 /data/data/com.android.providers.telephony/databases
-
-    # restart RIL <--> modem stack to account for new locations
-    restart cpboot-daemon
-    restart ril-daemon
