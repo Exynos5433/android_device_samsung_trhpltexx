@@ -270,7 +270,7 @@
     </path>
 
     <path name="verb-voicecall">
-		<ctl name="AIF2 Mode" value="Master" />
+		<ctl name="AIF2 Mode" value="Slave" />
 		<ctl name="DSP Virtual Output Mux" value="None" />
         <ctl name="HPOUT3L Input 1" value="AIF1RX1" />
         <ctl name="HPOUT3R Input 1" value="AIF1RX2" />
