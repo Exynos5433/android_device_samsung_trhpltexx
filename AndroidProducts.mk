@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_trhpltexx.mk
+    $(LOCAL_DIR)/aosp_trhpltexx.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_trhpltexx-user \
-    lineage_trhpltexx-userdebug \
-    lineage_trhpltexx-eng
+    aosp_trhpltexx-user \
+    aosp_trhpltexx-userdebug \
+    aosp_trhpltexx-eng
