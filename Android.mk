@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter trhpltexx,treltexx, $(TARGET_DEVICE)),)
+ifneq ($(filter trhpltexx, $(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 

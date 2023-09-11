@@ -30,7 +30,7 @@ BOARD_MODEM_TYPE := xmm7260
 BOARD_PROVIDES_LIBRIL := true
 
 # Recovery
-TARGET_OTA_ASSERT_DEVICE := trhpltexx,treltexx
+TARGET_OTA_ASSERT_DEVICE := trhpltexx
 
 # Inherit common board flags
 include device/samsung/trelte-common/BoardConfigCommon.mk
